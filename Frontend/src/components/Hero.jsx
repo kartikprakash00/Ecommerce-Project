@@ -1,6 +1,12 @@
 import React, { useContext } from 'react'
+import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore, { Autoplay } from 'swiper';
+import 'swiper/swiper-bundle.min.css'
+import 'swiper/swiper.min.css'
 import { assets } from '../assets/assets'
 import { ShopContext } from '../context/ShopContext'
+
+SwiperCore.use([Autoplay]);
 
 const Hero = () => {
 
@@ -24,7 +30,19 @@ const Hero = () => {
             </div>
 
             {/* Hero right side */}
-            <img className='w-full sm:w-1/2' src={assets.hero_img} alt="" />
+            <div className='w-full sm:w-1/2'>
+                <Swiper spaceBetween={10} slidesPerView={1} autoplay={{ delay: 4000 }} loop={true}>
+                    <SwiperSlide>
+                        <img className='w-full h-full sm:h-full md:h-[35vh] lg:h-[50vh]' src={assets.hero_img} alt="" />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <img className='w-full h-full sm:h-full md:h-[35vh] lg:h-[50vh]' src={assets.hero_img2} alt="" />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <img className='w-full h-full sm:h-full md:h-[35vh] lg:h-[50vh]' src={assets.hero_img3} alt="" />
+                    </SwiperSlide>
+                </Swiper>
+            </div>
 
         </div>
     )
