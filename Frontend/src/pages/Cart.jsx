@@ -36,10 +36,7 @@ const Cart = () => {
       {cartData.length === 0 ? (
         <div className="text-center py-20">
           <p className="text-gray-500 text-lg">Your cart is empty.</p>
-          <button
-            onClick={() => navigate('/collection')}
-            className="mt-5 bg-slate-200 text-black px-8 py-3 text-sm hover:bg-black hover:text-white transition-all duration-300"
-          >
+          <button onClick={() => navigate('/collection')} className="mt-5 bg-slate-200 text-black px-8 py-3 text-sm hover:bg-black hover:text-white transition-all duration-300">
             Continue Shopping
           </button>
         </div>
