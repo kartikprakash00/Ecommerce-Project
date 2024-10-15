@@ -178,7 +178,7 @@ const PlaceOrder = () => {
             </div> */}
             <div onClick={() => setMethod('card')} className='flex items-center gap-3 border p-2 px-3 cursor-pointer'>
               <p className={`min-w-3.5 h-3.5 border rounded-full ${method === 'card' ? 'bg-black' : ''}`}></p>
-              <p className='text-gray-500 text-sm font-medium mx-4 flex'>
+              <p className='text-gray-500 text-sm font-medium mx-4 flex flex-row-reverse'>
                 <img className='h-5 mx-4' src={assets.cardpay} alt="" />
                 DEBIT/CREDIT CARD
               </p>

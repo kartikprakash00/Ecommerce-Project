@@ -69,7 +69,7 @@ const CardCheckout = () => {
                         <div className="mb-4">
                             <label className="block text-gray-700 font-semibold mb-2">Card Number</label>
                             <input
-                                type="text"
+                                type="number"
                                 name="cardNumber"
                                 value={formData.cardNumber}
                                 onChange={handleChange}

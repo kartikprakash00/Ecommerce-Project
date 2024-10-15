@@ -19,7 +19,7 @@ const NavBar = () => {
     return (
         <div className='flex items-end justify-between py-5 font-medium'>
 
-            <Link className='cursor-pointer' to='/'><img src={assets.logo} className='w-52 h-auto' alt="" /></Link>
+            <Link className='cursor-pointer w-36 sm:w-52 h-auto' to='/'><img src={assets.logo} alt="" /></Link>
 
             <ul className='hidden sm:flex gap-5 text-sm text-gray-700'>
 
