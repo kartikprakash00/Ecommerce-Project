@@ -5,7 +5,7 @@ import razorpay from 'razorpay'
 
 // global variables
 const currency = 'inr'
-const deliveryCharge = 10
+const deliveryCharge = 99
 
 
 // Gateway Initialise
@@ -42,6 +42,43 @@ const placeOrder = async (req, res) => {
     } catch (error) {
         console.log(error);
         res.json({ success: false, message: error.message })
+    }
+}
+
+// Placing orders using Card Method
+const placeOrderCard = async (req, res) => {
+    try {
+
+        const { userId, items, amount, address } = req.body;
+
+        const orderData = {
+            userId,
+            items,
+            address,
+            amount,
+            paymentMethod: "Card",
+            payment: false,
+            date: Date.now()
+        }
+
+        const newOrder = new orderModel(orderData);
+        await newOrder.save();
+
+
+        const paymentSuccess = true;
+
+        if (paymentSuccess) {
+            await orderModel.findByIdAndUpdate(newOrder._id, { payment: true });
+            await userModel.findByIdAndUpdate(userId, { cartData: {} });
+
+            res.json({ success: true, message: "Order placed and payment successful" });
+        } else {
+            res.json({ success: false, message: "Payment failed" });
+        }
+
+    } catch (error) {
+        console.log(error);
+        res.json({ success: false, message: error.message });
     }
 }
 
@@ -230,4 +267,4 @@ const updateStatus = async (req, res) => {
     }
 }
 
-export { verifyRazorpay, verifyStripe, placeOrder, placeOrderStripe, placeOrderRazorpay, allOrders, userOrders, updateStatus }
+export { verifyRazorpay, verifyStripe, placeOrder, placeOrderCard, placeOrderStripe, placeOrderRazorpay, allOrders, userOrders, updateStatus }

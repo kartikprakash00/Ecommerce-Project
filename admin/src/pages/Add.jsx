@@ -22,6 +22,11 @@ const Add = ({ token }) => {
     const onSubmitHandler = async (e) => {
         e.preventDefault();
 
+        if (sizes.length === 0) {
+            toast.warning("Select atleast one product size")
+            return;
+        }
+
         try {
 
             const formData = new FormData()
