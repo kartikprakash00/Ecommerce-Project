@@ -34,7 +34,7 @@ const Footer = () => {
 
             <div>
                 <hr />
-                <p className='py-5 text-sm text-center'>©2024 www.urbanthreads.com - All Rights Reserved.</p>
+                <p className='py-5 text-sm text-center'>©2024 urbanthreads.vercel.app - All Rights Reserved.</p>
             </div>
         </div>
     )
