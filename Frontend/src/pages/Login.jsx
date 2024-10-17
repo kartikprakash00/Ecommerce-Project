@@ -52,11 +52,11 @@ const Login = () => {
     }
   }
 
-  useEffect(()=>{
-    if(token){
+  useEffect(() => {
+    if (token) {
       navigate('/')
     }
-  },[token])
+  }, [token])
 
   return (
     <div className='min-h-[45.7vh]'>
@@ -72,16 +72,16 @@ const Login = () => {
         <div className='w-full flex justify-between text-sm mt-[-8px]'>
           {
             currentState === 'Sign Up' ?
-              <label><input type="checkbox" required />Terms & Conditions</label>
-              : <p className='hover:underline cursor-pointer'>Forgot Password?</p>
+              <label className='text-[12px] sm:text-sm'><input type="checkbox" required />Terms & Conditions</label>
+              : <p className='hover:underline cursor-pointer text-[12.5px] sm:text-sm'>Forgot Password?</p>
           }
           {
             currentState === 'Login' ?
-              <p onClick={() => setCurrentState('Sign Up')} className='inline-flex gap-1'>
+              <p onClick={() => setCurrentState('Sign Up')} className='inline-flex gap-1 text-[12.5px] sm:text-sm'>
                 Don't Have an account?
                 <span className='hover:underline cursor-pointer font-semibold'>SignUp</span>
               </p>
-              : <p onClick={() => setCurrentState('Login')} className='inline-flex gap-1'>
+              : <p onClick={() => setCurrentState('Login')} className='inline-flex gap-1 text-[12px] sm:text-sm'>
                 Already Have an account?
                 <span className='hover:underline cursor-pointer font-semibold'>Login</span></p>
           }
