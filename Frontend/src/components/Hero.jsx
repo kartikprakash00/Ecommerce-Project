@@ -30,8 +30,13 @@ const Hero = () => {
             </div>
 
             {/* Hero right side */}
-            <div className='w-full sm:w-1/2'>
-                <Swiper spaceBetween={10} slidesPerView={1} autoplay={{ delay: 4000 }} loop={true}>
+            <div className='w-full sm:w-1/2 relative overflow-hidden'>
+                <Swiper
+                    spaceBetween={10}
+                    slidesPerView={1}
+                    autoplay={{ delay: 4000, disableOnInteraction: false }}
+                    loop={true}
+                    className='relative z-0'>
                     <SwiperSlide>
                         <img className='w-full h-full sm:h-full md:h-[35vh] lg:h-[50vh]' src={assets.hero_img} alt="" />
                     </SwiperSlide>
